@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for mobile-first */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 auto; /* Ensure the container is centered */
+}
+
+.container > h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+
+/* Header */
+/* header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px; /* Adding space below header */
+/* } */
+
+header {
+    position: relative;
+    background: url('header_background.png') center/cover no-repeat;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden; /* Ensures overlay doesn’t spill out */
+}
+
+/* The semi-transparent overlay */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 0; /* Keeps it behind the text */
+}
+
+header * {
+    position: relative;
+    z-index: 1; /* Ensures text appears above overlay */
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4a261;
+    text-decoration: underline;
+}
+/* logo */
+
+.header-title {
+    flex: 1;
+    text-align: center;
+}
+
+/* Section styles */
+section {
+    padding: 20px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    width: 100%; /* Ensure full width for the section */
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center; /* Center align the section title */
+}
+
+.project {
+    margin-bottom: 20px;
+}
+
+.project h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.project p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.project-images {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 15px; /* Space between images */
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.before-after-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding-bottom: 30px;
+}
+
+/* Each container should be relatively positioned */
+.before, .after {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+/* Images */
+.before img {
+  width: 50%;              /* Smaller than after */
+  max-width: 250px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  object-fit: cover;
+}
+
+
+.after img {
+  width: 100%;
+  max-width: 500px;        /* Keep consistent size */
+  border-radius: 5px;
+  border: 2px solid #4CAF50;
+  object-fit: cover;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Media Queries for Tablet and Desktop */
+
+/* Tablets and larger screens */
+@media (min-width: 600px) {
+    .container {
+        width: 85%;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    section h2 {
+        font-size: 2.5em;
+    }
+
+    /* Project layout: two images side by side */
+    .project {
+        margin-bottom: 30px;
+    }
+
+    .project-images {
+        grid-template-columns: 1fr 1fr; /* Two columns on tablets */
+    }
+}
+
+/* Desktop screens and larger */
+@media (min-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+
+    header h1 {
+        font-size: 3em;
+    }
+
+    nav ul li {
+        margin-right: 30px;
+    }
+
+    section h2 {
+        font-size: 3em;
+    }
+
+    /* Project layout: images in a grid with spacing */
+    .project {
+        margin-bottom: 40px;
+    }
+
+    .project-images {
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Four images in a row on desktop */
+        gap: 20px; /* Increased space between images */
+    }
+
+    .project img {
+        width: 100%;
+    }
+
+    /* Footer styling */
+    footer p {
+        font-size: 1.1em;
+    }
+
+    .before-after-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;   /* keeps both vertically aligned */
+        gap: 30px;             /* reduced spacing between before & after */
+        padding-bottom: 20px;  /* smaller padding for tighter layout */
+    }
+
+    .before, .after {
+        position: relative;
+        flex: 1;
+        text-align: center;          /* Centers inline elements like <img> */
+        display: flex;               /* Center with flexbox */
+        flex-direction: column;      /* Stack the label and image vertically */
+        align-items: center;         /* Center the image horizontally */
+        justify-content: center;     /* Center vertically within the container */
+}
+
+    .before img {
+        width: 45%; /* still smaller than after */
+    }
+
+    .after img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    /* --- SPECIAL STYLE FOR THE FIRST AFTER IMAGE --- */
+    .after img[alt="After photo"][src*="after_livingroom"] {
+        max-width: 650px;   /* make only the first "after" image bigger */
+        width: 120%;        /* make it appear larger without stretching */
+    }
+}
+
+/* Lightbox overlay for enlarging images */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    cursor: zoom-out;
+    transition: transform 0.3s ease;
+}
+
+#lightbox img:hover {
+    transform: scale(1.02);
+}
+
+/* Lightbox navigation arrows */
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10000;
+    transition: background 0.3s;
+}
+
+.lightbox-arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-arrow.prev {
+    left: 20px;
+}
+
+.lightbox-arrow.next {
+    right: 20px;
+}
+
+/* Responsive arrow size for mobile */
+@media (max-width: 600px) {
+    .lightbox-arrow {
+        font-size: 2rem;
+        padding: 8px 12px;
+    }
+}
